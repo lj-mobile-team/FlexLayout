@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include "RNYGLayout.h"
 #include "RNYGStyle.h"
-#include "Yoga-internal.h"
+#include "RNYoga-internal.h"
 
 struct RNYGNode {
  private:

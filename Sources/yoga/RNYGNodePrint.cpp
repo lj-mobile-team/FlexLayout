@@ -9,7 +9,7 @@
 #include <stdarg.h>
 #include "RNYGEnums.h"
 #include "RNYGNode.h"
-#include "Yoga-internal.h"
+#include "RNYoga-internal.h"
 
 namespace facebook {
 namespace yoga {

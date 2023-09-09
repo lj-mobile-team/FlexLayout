@@ -7,7 +7,7 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 #pragma once
-#include "Yoga-internal.h"
+#include "RNYoga-internal.h"
 
 struct RNYGLayout {
   std::array<float, 4> position;

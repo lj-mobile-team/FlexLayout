@@ -7,7 +7,7 @@
 
 #pragma once
 #include "RNYGNode.h"
-#include "Yoga-internal.h"
+#include "RNYoga-internal.h"
 
 // This struct is an helper model to hold the data for step 4 of flexbox
 // algo, which is collecting the flex items in a line.

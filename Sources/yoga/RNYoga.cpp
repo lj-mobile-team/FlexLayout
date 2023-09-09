@@ -11,7 +11,7 @@
 #include "RNUtils.h"
 #include "RNYGNode.h"
 #include "RNYGNodePrint.h"
-#include "Yoga-internal.h"
+#include "RNYoga-internal.h"
 
 #ifdef _MSC_VER
 #include <float.h>
