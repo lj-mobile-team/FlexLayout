@@ -18,10 +18,10 @@
 #import "RNYGLayout+Private.h"
 
 //! Project version number for FlexLayout.
-FOUNDATION_EXPORT double FlexLayoutVersionNumber;
+FOUNDATION_EXPORT double RNFlexLayoutVersionNumber;
 
 //! Project version string for FlexLayout.
-FOUNDATION_EXPORT const unsigned char FlexLayoutVersionString[];
+FOUNDATION_EXPORT const unsigned char RNFlexLayoutVersionString[];
 
 // In this header, you should import all the public headers of your framework using
 #import "RNYoga.h"
