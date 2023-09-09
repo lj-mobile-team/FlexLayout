@@ -17,157 +17,157 @@ import UIKit
 #if FLEXLAYOUT_SWIFT_PACKAGE
 import FlexLayoutYoga
 
-extension YGFlexDirection {
-    static let column = YGFlexDirectionColumn
-    static let columnReverse = YGFlexDirectionColumnReverse
-    static let row = YGFlexDirectionRow
-    static let rowReverse = YGFlexDirectionRowReverse
+extension RNYGFlexDirection {
+    static let column = RNYGFlexDirectionColumn
+    static let columnReverse = RNYGFlexDirectionColumnReverse
+    static let row = RNYGFlexDirectionRow
+    static let rowReverse = RNYGFlexDirectionRowReverse
 }
 
-extension YGJustify {
-    static let flexStart = YGJustifyFlexStart
-    static let center = YGJustifyCenter
-    static let flexEnd = YGJustifyFlexEnd
-    static let spaceBetween = YGJustifySpaceBetween
-    static let spaceAround = YGJustifySpaceAround
-    static let spaceEvenly = YGJustifySpaceEvenly
+extension RNYGJustify {
+    static let flexStart = RNYGJustifyFlexStart
+    static let center = RNYGJustifyCenter
+    static let flexEnd = RNYGJustifyFlexEnd
+    static let spaceBetween = RNYGJustifySpaceBetween
+    static let spaceAround = RNYGJustifySpaceAround
+    static let spaceEvenly = RNYGJustifySpaceEvenly
 }
 
-extension YGAlign {
-    static let auto = YGAlignAuto
-    static let baseline = YGAlignBaseline
-    static let stretch = YGAlignStretch
-    static let flexStart = YGAlignFlexStart
-    static let center = YGAlignCenter
-    static let flexEnd = YGAlignFlexEnd
-    static let spaceBetween = YGAlignSpaceBetween
-    static let spaceAround = YGAlignSpaceAround
+extension RNYGAlign {
+    static let auto = RNYGAlignAuto
+    static let baseline = RNYGAlignBaseline
+    static let stretch = RNYGAlignStretch
+    static let flexStart = RNYGAlignFlexStart
+    static let center = RNYGAlignCenter
+    static let flexEnd = RNYGAlignFlexEnd
+    static let spaceBetween = RNYGAlignSpaceBetween
+    static let spaceAround = RNYGAlignSpaceAround
 }
 
-extension YGWrap {
-    static let noWrap = YGWrapNoWrap
-    static let wrap = YGWrapWrap
-    static let wrapReverse = YGWrapWrapReverse
+extension RNYGWrap {
+    static let noWrap = RNYGWrapNoWrap
+    static let wrap = RNYGWrapWrap
+    static let wrapReverse = RNYGWrapWrapReverse
 }
 
-extension YGPositionType {
-    static let relative = YGPositionTypeRelative
-    static let absolute = YGPositionTypeAbsolute
+extension RNYGPositionType {
+    static let relative = RNYGPositionTypeRelative
+    static let absolute = RNYGPositionTypeAbsolute
 }
 
-extension YGDirection {
-    static let LTR = YGDirectionLTR
-    static let RTL = YGDirectionRTL
-    static let inherit = YGDirectionInherit
+extension RNYGDirection {
+    static let LTR = RNYGDirectionLTR
+    static let RTL = RNYGDirectionRTL
+    static let inherit = RNYGDirectionInherit
 }
 
-extension YGDisplay {
-    static let flex = YGDisplayFlex
-    static let none = YGDisplayNone
+extension RNYGDisplay {
+    static let flex = RNYGDisplayFlex
+    static let none = RNYGDisplayNone
 }
 
-extension YGUnit {
-    static let percent = YGUnitPercent
-    static let point = YGUnitPoint
+extension RNYGUnit {
+    static let percent = RNYGUnitPercent
+    static let point = RNYGUnitPoint
 }
 #endif
 
 extension Flex.Direction {
-    var yogaValue: YGFlexDirection {
+    var yogaValue: RNYGFlexDirection {
         switch self {
-        case .column:        return YGFlexDirection.column
-        case .columnReverse: return YGFlexDirection.columnReverse
-        case .row:           return YGFlexDirection.row
-        case .rowReverse:    return YGFlexDirection.rowReverse
+        case .column:        return RNYGFlexDirection.column
+        case .columnReverse: return RNYGFlexDirection.columnReverse
+        case .row:           return RNYGFlexDirection.row
+        case .rowReverse:    return RNYGFlexDirection.rowReverse
         }
     }
 }
 
 extension Flex.JustifyContent {
-    var yogaValue: YGJustify {
+    var yogaValue: RNYGJustify {
         switch self {
-        case .start:        return YGJustify.flexStart
-        case .center:       return YGJustify.center
-        case .end:          return YGJustify.flexEnd
-        case .spaceBetween: return YGJustify.spaceBetween
-        case .spaceAround:  return YGJustify.spaceAround
-        case .spaceEvenly:  return YGJustify.spaceEvenly
+        case .start:        return RNYGJustify.flexStart
+        case .center:       return RNYGJustify.center
+        case .end:          return RNYGJustify.flexEnd
+        case .spaceBetween: return RNYGJustify.spaceBetween
+        case .spaceAround:  return RNYGJustify.spaceAround
+        case .spaceEvenly:  return RNYGJustify.spaceEvenly
         }
     }
 }
 
 extension Flex.AlignContent {
-    var yogaValue: YGAlign {
+    var yogaValue: RNYGAlign {
         switch self {
-        case .stretch:      return YGAlign.stretch
-        case .start:        return YGAlign.flexStart
-        case .center:       return YGAlign.center
-        case .end:          return YGAlign.flexEnd
-        case .spaceBetween: return YGAlign.spaceBetween
-        case .spaceAround:  return YGAlign.spaceAround
+        case .stretch:      return RNYGAlign.stretch
+        case .start:        return RNYGAlign.flexStart
+        case .center:       return RNYGAlign.center
+        case .end:          return RNYGAlign.flexEnd
+        case .spaceBetween: return RNYGAlign.spaceBetween
+        case .spaceAround:  return RNYGAlign.spaceAround
         }
     }
 }
 
 extension Flex.AlignItems {
-    var yogaValue: YGAlign {
+    var yogaValue: RNYGAlign {
         switch self {
-        case .stretch:      return YGAlign.stretch
-        case .start:        return YGAlign.flexStart
-        case .center:       return YGAlign.center
-        case .end:          return YGAlign.flexEnd
-        case .baseline:     return YGAlign.baseline
+        case .stretch:      return RNYGAlign.stretch
+        case .start:        return RNYGAlign.flexStart
+        case .center:       return RNYGAlign.center
+        case .end:          return RNYGAlign.flexEnd
+        case .baseline:     return RNYGAlign.baseline
         }
     }
 }
 
 extension Flex.AlignSelf {
-    var yogaValue: YGAlign {
+    var yogaValue: RNYGAlign {
         switch self {
-        case .auto:         return YGAlign.auto
-        case .stretch:      return YGAlign.stretch
-        case .start:        return YGAlign.flexStart
-        case .center:       return YGAlign.center
-        case .end:          return YGAlign.flexEnd
-        case .baseline:     return YGAlign.baseline
+        case .auto:         return RNYGAlign.auto
+        case .stretch:      return RNYGAlign.stretch
+        case .start:        return RNYGAlign.flexStart
+        case .center:       return RNYGAlign.center
+        case .end:          return RNYGAlign.flexEnd
+        case .baseline:     return RNYGAlign.baseline
         }
     }
 }
 
 extension Flex.Wrap {
-    var yogaValue: YGWrap {
+    var yogaValue: RNYGWrap {
         switch self {
-        case .noWrap:      return YGWrap.noWrap
-        case .wrap:        return YGWrap.wrap
-        case .wrapReverse: return YGWrap.wrapReverse
+        case .noWrap:      return RNYGWrap.noWrap
+        case .wrap:        return RNYGWrap.wrap
+        case .wrapReverse: return RNYGWrap.wrapReverse
         }
     }
 }
 
 extension Flex.Position {
-    var yogaValue: YGPositionType {
+    var yogaValue: RNYGPositionType {
         switch self {
-        case .relative: return YGPositionType.relative
-        case .absolute: return YGPositionType.absolute
+        case .relative: return RNYGPositionType.relative
+        case .absolute: return RNYGPositionType.absolute
         }
     }
 }
 
 extension Flex.LayoutDirection {
-    var yogaValue: YGDirection {
+    var yogaValue: RNYGDirection {
         switch self {
-        case .ltr: return YGDirection.LTR
-        case .rtl: return YGDirection.RTL
-        default:   return YGDirection.inherit
+        case .ltr: return RNYGDirection.LTR
+        case .rtl: return RNYGDirection.RTL
+        default:   return RNYGDirection.inherit
         }
     }
 }
 
 extension Flex.Display {
-    var yogaValue: YGDisplay {
+    var yogaValue: RNYGDisplay {
         switch self {
-        case .flex: return YGDisplay.flex
-        case .none: return YGDisplay.none
+        case .flex: return RNYGDisplay.flex
+        case .none: return RNYGDisplay.none
         }
     }
 }

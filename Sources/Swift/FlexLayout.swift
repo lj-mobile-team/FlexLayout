@@ -35,7 +35,7 @@ public final class Flex {
      Flex items's UIView.
     */
     public private(set) weak var view: UIView?
-    private let yoga: YGLayout
+    private let yoga: RNYGLayout
     
     /**
      Item natural size, considering only properties of the view itself. Independent of the item frame.
@@ -111,7 +111,7 @@ public final class Flex {
         if case .fitContainer = mode {
             yoga.applyLayout(preservingOrigin: true)
         } else {
-            yoga.applyLayout(preservingOrigin: true, dimensionFlexibility: mode == .adjustWidth ? YGDimensionFlexibility.flexibleWidth : YGDimensionFlexibility.flexibleHeight)
+            yoga.applyLayout(preservingOrigin: true, dimensionFlexibility: mode == .adjustWidth ? RNYGDimensionFlexibility.flexibleWidth : RNYGDimensionFlexibility.flexibleHeight)
         }
     }
     
@@ -370,7 +370,7 @@ public final class Flex {
     */
     @discardableResult
     public func basis(_ percent: FPercent) -> Flex {
-        yoga.flexBasis = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.flexBasis = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -393,7 +393,7 @@ public final class Flex {
      */
     @discardableResult
     public func width(_ percent: FPercent) -> Flex {
-        yoga.width = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.width = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -412,7 +412,7 @@ public final class Flex {
      */
     @discardableResult
     public func height(_ percent: FPercent) -> Flex {
-        yoga.height = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.height = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -431,8 +431,8 @@ public final class Flex {
      */
     @discardableResult
     public func size(_ sideLength: CGFloat) -> Flex {
-        yoga.width = YGValue(sideLength)
-        yoga.height = YGValue(sideLength)
+        yoga.width = RNYGValue(sideLength)
+        yoga.height = RNYGValue(sideLength)
         return self
     }
 
@@ -450,7 +450,7 @@ public final class Flex {
      */
     @discardableResult
     public func minWidth(_ percent: FPercent) -> Flex {
-        yoga.minWidth = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.minWidth = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -468,7 +468,7 @@ public final class Flex {
      */
     @discardableResult
     public func maxWidth(_ percent: FPercent) -> Flex {
-        yoga.maxWidth = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.maxWidth = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -486,7 +486,7 @@ public final class Flex {
      */
     @discardableResult
     public func minHeight(_ percent: FPercent) -> Flex {
-        yoga.minHeight = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.minHeight = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -505,7 +505,7 @@ public final class Flex {
      */
     @discardableResult
     public func maxHeight(_ percent: FPercent) -> Flex {
-        yoga.maxHeight = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.maxHeight = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -519,7 +519,7 @@ public final class Flex {
     */
     @discardableResult
     public func aspectRatio(_ value: CGFloat?) -> Flex {
-        yoga.aspectRatio = value != nil ? value! : CGFloat(YGValueUndefined.value)
+        yoga.aspectRatio = value != nil ? value! : CGFloat(RNYGValueUndefined.value)
         return self
     }
     
@@ -560,7 +560,7 @@ public final class Flex {
      */
     @discardableResult
     public func left(_ value: CGFloat) -> Flex {
-        yoga.left = YGValue(value)
+        yoga.left = RNYGValue(value)
         return self
     }
 
@@ -570,7 +570,7 @@ public final class Flex {
      */
     @discardableResult
     public func left(_ percent: FPercent) -> Flex {
-        yoga.left = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.left = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -580,7 +580,7 @@ public final class Flex {
      */
     @discardableResult
     public func top(_ value: CGFloat) -> Flex {
-        yoga.top = YGValue(value)
+        yoga.top = RNYGValue(value)
         return self
     }
 
@@ -590,7 +590,7 @@ public final class Flex {
      */
     @discardableResult
     public func top(_ percent: FPercent) -> Flex {
-        yoga.top = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.top = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -600,7 +600,7 @@ public final class Flex {
      */
     @discardableResult
     public func right(_ value: CGFloat) -> Flex {
-        yoga.right = YGValue(value)
+        yoga.right = RNYGValue(value)
         return self
     }
 
@@ -610,7 +610,7 @@ public final class Flex {
      */
     @discardableResult
     public func right(_ percent: FPercent) -> Flex {
-        yoga.right = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.right = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -620,7 +620,7 @@ public final class Flex {
      */
     @discardableResult
     public func bottom(_ value: CGFloat) -> Flex {
-        yoga.bottom = YGValue(value)
+        yoga.bottom = RNYGValue(value)
         return self
     }
 
@@ -630,7 +630,7 @@ public final class Flex {
      */
     @discardableResult
     public func bottom(_ percent: FPercent) -> Flex {
-        yoga.bottom = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.bottom = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -640,7 +640,7 @@ public final class Flex {
      */
     @discardableResult
     public func start(_ value: CGFloat) -> Flex {
-        yoga.start = YGValue(value)
+        yoga.start = RNYGValue(value)
         return self
     }
 
@@ -651,7 +651,7 @@ public final class Flex {
      */
     @discardableResult
     public func start(_ percent: FPercent) -> Flex {
-        yoga.start = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.start = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -661,7 +661,7 @@ public final class Flex {
      */
     @discardableResult
     public func end(_ value: CGFloat) -> Flex {
-        yoga.end = YGValue(value)
+        yoga.end = RNYGValue(value)
         return self
     }
 
@@ -672,7 +672,7 @@ public final class Flex {
      */
     @discardableResult
     public func end(_ percent: FPercent) -> Flex {
-        yoga.end = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.end = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -682,8 +682,8 @@ public final class Flex {
       */
     @discardableResult
     public func horizontally(_ value: CGFloat) -> Flex {
-        yoga.left = YGValue(value)
-        yoga.right = YGValue(value)
+        yoga.left = RNYGValue(value)
+        yoga.right = RNYGValue(value)
         return self
      }
 
@@ -693,8 +693,8 @@ public final class Flex {
       */
     @discardableResult
     public func horizontally(_ percent: FPercent) -> Flex {
-        yoga.left = YGValue(value: Float(percent.value), unit: .percent)
-        yoga.right = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.left = RNYGValue(value: Float(percent.value), unit: .percent)
+        yoga.right = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -704,8 +704,8 @@ public final class Flex {
      */
     @discardableResult
     public func vertically(_ value: CGFloat) -> Flex {
-        yoga.top = YGValue(value)
-        yoga.bottom = YGValue(value)
+        yoga.top = RNYGValue(value)
+        yoga.bottom = RNYGValue(value)
         return self
     }
     
@@ -715,8 +715,8 @@ public final class Flex {
      */
     @discardableResult
     public func vertically(_ percent: FPercent) -> Flex {
-        yoga.top = YGValue(value: Float(percent.value), unit: .percent)
-        yoga.bottom = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.top = RNYGValue(value: Float(percent.value), unit: .percent)
+        yoga.bottom = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -726,10 +726,10 @@ public final class Flex {
      */
     @discardableResult
     public func all(_ value: CGFloat) -> Flex {
-        yoga.top = YGValue(value)
-        yoga.left = YGValue(value)
-        yoga.bottom = YGValue(value)
-        yoga.right = YGValue(value)
+        yoga.top = RNYGValue(value)
+        yoga.left = RNYGValue(value)
+        yoga.bottom = RNYGValue(value)
+        yoga.right = RNYGValue(value)
         return self
     }
     
@@ -739,10 +739,10 @@ public final class Flex {
      */
     @discardableResult
     public func all(_ percent: FPercent) -> Flex {
-        yoga.top = YGValue(value: Float(percent.value), unit: .percent)
-        yoga.left = YGValue(value: Float(percent.value), unit: .percent)
-        yoga.bottom = YGValue(value: Float(percent.value), unit: .percent)
-        yoga.right = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.top = RNYGValue(value: Float(percent.value), unit: .percent)
+        yoga.left = RNYGValue(value: Float(percent.value), unit: .percent)
+        yoga.bottom = RNYGValue(value: Float(percent.value), unit: .percent)
+        yoga.right = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -755,13 +755,13 @@ public final class Flex {
      */
     @discardableResult
     public func marginTop(_ value: CGFloat) -> Flex {
-        yoga.marginTop = YGValue(value)
+        yoga.marginTop = RNYGValue(value)
         return self
     }
     
     @discardableResult
     public func marginTop(_ percent: FPercent) -> Flex {
-        yoga.marginTop = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.marginTop = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -770,13 +770,13 @@ public final class Flex {
      */
     @discardableResult
     public func marginLeft(_ value: CGFloat) -> Flex {
-        yoga.marginLeft = YGValue(value)
+        yoga.marginLeft = RNYGValue(value)
         return self
     }
     
     @discardableResult
     public func marginLeft(_ percent: FPercent) -> Flex {
-        yoga.marginLeft = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.marginLeft = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -785,13 +785,13 @@ public final class Flex {
      */
     @discardableResult
     public func marginBottom(_ value: CGFloat) -> Flex {
-        yoga.marginBottom = YGValue(value)
+        yoga.marginBottom = RNYGValue(value)
         return self
     }
     
     @discardableResult
     public func marginBottom(_ percent: FPercent) -> Flex {
-        yoga.marginBottom = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.marginBottom = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -800,13 +800,13 @@ public final class Flex {
      */
     @discardableResult
     public func marginRight(_ value: CGFloat) -> Flex {
-        yoga.marginRight = YGValue(value)
+        yoga.marginRight = RNYGValue(value)
         return self
     }
     
     @discardableResult
     public func marginRight(_ percent: FPercent) -> Flex {
-        yoga.marginRight = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.marginRight = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -819,13 +819,13 @@ public final class Flex {
      */
     @discardableResult
     public func marginStart(_ value: CGFloat) -> Flex {
-        yoga.marginStart = YGValue(value)
+        yoga.marginStart = RNYGValue(value)
         return self
     }
     
     @discardableResult
     public func marginStart(_ percent: FPercent) -> Flex {
-        yoga.marginStart = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.marginStart = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -838,13 +838,13 @@ public final class Flex {
      */
     @discardableResult
     public func marginEnd(_ value: CGFloat) -> Flex {
-        yoga.marginEnd = YGValue(value)
+        yoga.marginEnd = RNYGValue(value)
         return self
     }
     
     @discardableResult
     public func marginEnd(_ percent: FPercent) -> Flex {
-        yoga.marginEnd = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.marginEnd = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -853,13 +853,13 @@ public final class Flex {
      */
     @discardableResult
     public func marginHorizontal(_ value: CGFloat) -> Flex {
-        yoga.marginHorizontal = YGValue(value)
+        yoga.marginHorizontal = RNYGValue(value)
         return self
     }
     
     @discardableResult
     public func marginHorizontal(_ percent: FPercent) -> Flex {
-        yoga.marginHorizontal = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.marginHorizontal = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -868,13 +868,13 @@ public final class Flex {
      */
     @discardableResult
     public func marginVertical(_ value: CGFloat) -> Flex {
-        yoga.marginVertical = YGValue(value)
+        yoga.marginVertical = RNYGValue(value)
         return self
     }
     
     @discardableResult
     public func marginVertical(_ percent: FPercent) -> Flex {
-        yoga.marginVertical = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.marginVertical = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -884,10 +884,10 @@ public final class Flex {
      */
     @discardableResult
     public func margin(_ insets: UIEdgeInsets) -> Flex {
-        yoga.marginTop = YGValue(insets.top)
-        yoga.marginLeft = YGValue(insets.left)
-        yoga.marginBottom = YGValue(insets.bottom)
-        yoga.marginRight = YGValue(insets.right)
+        yoga.marginTop = RNYGValue(insets.top)
+        yoga.marginLeft = RNYGValue(insets.left)
+        yoga.marginBottom = RNYGValue(insets.bottom)
+        yoga.marginRight = RNYGValue(insets.right)
         return self
     }
     
@@ -900,10 +900,10 @@ public final class Flex {
     @available(tvOS 11.0, iOS 11.0, *)
     @discardableResult
     public func margin(_ directionalInsets: NSDirectionalEdgeInsets) -> Flex {
-        yoga.marginTop = YGValue(directionalInsets.top)
-        yoga.marginStart = YGValue(directionalInsets.leading)
-        yoga.marginBottom = YGValue(directionalInsets.bottom)
-        yoga.marginEnd = YGValue(directionalInsets.trailing)
+        yoga.marginTop = RNYGValue(directionalInsets.top)
+        yoga.marginStart = RNYGValue(directionalInsets.leading)
+        yoga.marginBottom = RNYGValue(directionalInsets.bottom)
+        yoga.marginEnd = RNYGValue(directionalInsets.trailing)
         return self
     }
 
@@ -912,13 +912,13 @@ public final class Flex {
      */
     @discardableResult
     public func margin(_ value: CGFloat) -> Flex {
-        yoga.margin = YGValue(value)
+        yoga.margin = RNYGValue(value)
         return self
     }
     
     @discardableResult
     public func margin(_ percent: FPercent) -> Flex {
-        yoga.margin = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.margin = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -927,15 +927,15 @@ public final class Flex {
      */
     @discardableResult
     public func margin(_ vertical: CGFloat, _ horizontal: CGFloat) -> Flex {
-        yoga.marginVertical = YGValue(vertical)
-        yoga.marginHorizontal = YGValue(horizontal)
+        yoga.marginVertical = RNYGValue(vertical)
+        yoga.marginHorizontal = RNYGValue(horizontal)
         return self
     }
     
     @discardableResult
     public func margin(_ vertical: FPercent, _ horizontal: FPercent) -> Flex {
-        yoga.marginVertical = YGValue(value: Float(vertical.value), unit: .percent)
-        yoga.marginHorizontal = YGValue(value: Float(horizontal.value), unit: .percent)
+        yoga.marginVertical = RNYGValue(value: Float(vertical.value), unit: .percent)
+        yoga.marginHorizontal = RNYGValue(value: Float(horizontal.value), unit: .percent)
         return self
     }
     
@@ -944,17 +944,17 @@ public final class Flex {
      */
     @discardableResult
     public func margin(_ top: CGFloat, _ horizontal: CGFloat, _ bottom: CGFloat) -> Flex {
-        yoga.marginTop = YGValue(top)
-        yoga.marginHorizontal = YGValue(horizontal)
-        yoga.marginBottom = YGValue(bottom)
+        yoga.marginTop = RNYGValue(top)
+        yoga.marginHorizontal = RNYGValue(horizontal)
+        yoga.marginBottom = RNYGValue(bottom)
         return self
     }
     
     @discardableResult
     public func margin(_ top: FPercent, _ horizontal: FPercent, _ bottom: FPercent) -> Flex {
-        yoga.marginTop = YGValue(value: Float(top.value), unit: .percent)
-        yoga.marginHorizontal = YGValue(value: Float(horizontal.value), unit: .percent)
-        yoga.marginBottom = YGValue(value: Float(bottom.value), unit: .percent)
+        yoga.marginTop = RNYGValue(value: Float(top.value), unit: .percent)
+        yoga.marginHorizontal = RNYGValue(value: Float(horizontal.value), unit: .percent)
+        yoga.marginBottom = RNYGValue(value: Float(bottom.value), unit: .percent)
         return self
     }
 
@@ -963,19 +963,19 @@ public final class Flex {
      */
     @discardableResult
     public func margin(_ top: CGFloat, _ left: CGFloat, _ bottom: CGFloat, _ right: CGFloat) -> Flex {
-        yoga.marginTop = YGValue(top)
-        yoga.marginLeft = YGValue(left)
-        yoga.marginBottom = YGValue(bottom)
-        yoga.marginRight = YGValue(right)
+        yoga.marginTop = RNYGValue(top)
+        yoga.marginLeft = RNYGValue(left)
+        yoga.marginBottom = RNYGValue(bottom)
+        yoga.marginRight = RNYGValue(right)
         return self
     }
     
     @discardableResult
     public func margin(_ top: FPercent, _ left: FPercent, _ bottom: FPercent, _ right: FPercent) -> Flex {
-        yoga.marginTop = YGValue(value: Float(top.value), unit: .percent)
-        yoga.marginLeft = YGValue(value: Float(left.value), unit: .percent)
-        yoga.marginBottom = YGValue(value: Float(bottom.value), unit: .percent)
-        yoga.marginRight = YGValue(value: Float(right.value), unit: .percent)
+        yoga.marginTop = RNYGValue(value: Float(top.value), unit: .percent)
+        yoga.marginLeft = RNYGValue(value: Float(left.value), unit: .percent)
+        yoga.marginBottom = RNYGValue(value: Float(bottom.value), unit: .percent)
+        yoga.marginRight = RNYGValue(value: Float(right.value), unit: .percent)
         return self
     }
 
@@ -988,13 +988,13 @@ public final class Flex {
      */
     @discardableResult
     public func paddingTop(_ value: CGFloat) -> Flex {
-        yoga.paddingTop = YGValue(value)
+        yoga.paddingTop = RNYGValue(value)
         return self
     }
 
     @discardableResult
     public func paddingTop(_ percent: FPercent) -> Flex {
-        yoga.paddingTop = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.paddingTop = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -1003,13 +1003,13 @@ public final class Flex {
      */
     @discardableResult
     public func paddingLeft(_ value: CGFloat) -> Flex {
-        yoga.paddingLeft = YGValue(value)
+        yoga.paddingLeft = RNYGValue(value)
         return self
     }
 
     @discardableResult
     public func paddingLeft(_ percent: FPercent) -> Flex {
-        yoga.paddingLeft = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.paddingLeft = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -1018,13 +1018,13 @@ public final class Flex {
      */
     @discardableResult
     public func paddingBottom(_ value: CGFloat) -> Flex {
-        yoga.paddingBottom = YGValue(value)
+        yoga.paddingBottom = RNYGValue(value)
         return self
     }
 
     @discardableResult
     public func paddingBottom(_ percent: FPercent) -> Flex {
-        yoga.paddingBottom = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.paddingBottom = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -1033,13 +1033,13 @@ public final class Flex {
      */
     @discardableResult
     public func paddingRight(_ value: CGFloat) -> Flex {
-        yoga.paddingRight = YGValue(value)
+        yoga.paddingRight = RNYGValue(value)
         return self
     }
 
     @discardableResult
     public func paddingRight(_ percent: FPercent) -> Flex {
-        yoga.paddingRight = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.paddingRight = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -1052,13 +1052,13 @@ public final class Flex {
      */
     @discardableResult
     public func paddingStart(_ value: CGFloat) -> Flex {
-        yoga.paddingStart = YGValue(value)
+        yoga.paddingStart = RNYGValue(value)
         return self
     }
 
     @discardableResult
     public func paddingStart(_ percent: FPercent) -> Flex {
-        yoga.paddingStart = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.paddingStart = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -1071,13 +1071,13 @@ public final class Flex {
      */
     @discardableResult
     public func paddingEnd(_ value: CGFloat) -> Flex {
-        yoga.paddingEnd = YGValue(value)
+        yoga.paddingEnd = RNYGValue(value)
         return self
     }
 
     @discardableResult
     public func paddingEnd(_ percent: FPercent) -> Flex {
-        yoga.paddingEnd = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.paddingEnd = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -1086,13 +1086,13 @@ public final class Flex {
      */
     @discardableResult
     public func paddingHorizontal(_ value: CGFloat) -> Flex {
-        yoga.paddingHorizontal = YGValue(value)
+        yoga.paddingHorizontal = RNYGValue(value)
         return self
     }
 
     @discardableResult
     public func paddingHorizontal(_ percent: FPercent) -> Flex {
-        yoga.paddingHorizontal = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.paddingHorizontal = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -1101,13 +1101,13 @@ public final class Flex {
      */
     @discardableResult
     public func paddingVertical(_ value: CGFloat) -> Flex {
-        yoga.paddingVertical = YGValue(value)
+        yoga.paddingVertical = RNYGValue(value)
         return self
     }
 
     @discardableResult
     public func paddingVertical(_ percent: FPercent) -> Flex {
-        yoga.paddingVertical = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.paddingVertical = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
     
@@ -1117,10 +1117,10 @@ public final class Flex {
      */
     @discardableResult
     public func padding(_ insets: UIEdgeInsets) -> Flex {
-        yoga.paddingTop = YGValue(insets.top)
-        yoga.paddingLeft = YGValue(insets.left)
-        yoga.paddingBottom = YGValue(insets.bottom)
-        yoga.paddingRight = YGValue(insets.right)
+        yoga.paddingTop = RNYGValue(insets.top)
+        yoga.paddingLeft = RNYGValue(insets.left)
+        yoga.paddingBottom = RNYGValue(insets.bottom)
+        yoga.paddingRight = RNYGValue(insets.right)
         return self
     }
     
@@ -1133,10 +1133,10 @@ public final class Flex {
     @available(tvOS 11.0, iOS 11.0, *)
     @discardableResult
     public func padding(_ directionalInsets: NSDirectionalEdgeInsets) -> Flex {
-        yoga.paddingTop = YGValue(directionalInsets.top)
-        yoga.paddingStart = YGValue(directionalInsets.leading)
-        yoga.paddingBottom = YGValue(directionalInsets.bottom)
-        yoga.paddingEnd = YGValue(directionalInsets.trailing)
+        yoga.paddingTop = RNYGValue(directionalInsets.top)
+        yoga.paddingStart = RNYGValue(directionalInsets.leading)
+        yoga.paddingBottom = RNYGValue(directionalInsets.bottom)
+        yoga.paddingEnd = RNYGValue(directionalInsets.trailing)
         return self
     }
 
@@ -1145,13 +1145,13 @@ public final class Flex {
      */
     @discardableResult
     public func padding(_ value: CGFloat) -> Flex {
-        yoga.padding = YGValue(value)
+        yoga.padding = RNYGValue(value)
         return self
     }
 
     @discardableResult
     public func padding(_ percent: FPercent) -> Flex {
-        yoga.padding = YGValue(value: Float(percent.value), unit: .percent)
+        yoga.padding = RNYGValue(value: Float(percent.value), unit: .percent)
         return self
     }
 
@@ -1160,15 +1160,15 @@ public final class Flex {
      */
     @discardableResult
     public func padding(_ vertical: CGFloat, _ horizontal: CGFloat) -> Flex {
-        yoga.paddingVertical = YGValue(vertical)
-        yoga.paddingHorizontal = YGValue(horizontal)
+        yoga.paddingVertical = RNYGValue(vertical)
+        yoga.paddingHorizontal = RNYGValue(horizontal)
         return self
     }
 
     @discardableResult
     public func padding(_ vertical: FPercent, _ horizontal: FPercent) -> Flex {
-        yoga.paddingVertical = YGValue(value: Float(vertical.value), unit: .percent)
-        yoga.paddingHorizontal = YGValue(value: Float(horizontal.value), unit: .percent)
+        yoga.paddingVertical = RNYGValue(value: Float(vertical.value), unit: .percent)
+        yoga.paddingHorizontal = RNYGValue(value: Float(horizontal.value), unit: .percent)
         return self
     }
     
@@ -1177,17 +1177,17 @@ public final class Flex {
      */
     @discardableResult
     public func padding(_ top: CGFloat, _ horizontal: CGFloat, _ bottom: CGFloat) -> Flex {
-        yoga.paddingTop = YGValue(top)
-        yoga.paddingHorizontal = YGValue(horizontal)
-        yoga.paddingBottom = YGValue(bottom)
+        yoga.paddingTop = RNYGValue(top)
+        yoga.paddingHorizontal = RNYGValue(horizontal)
+        yoga.paddingBottom = RNYGValue(bottom)
         return self
     }
 
     @discardableResult
     public func padding(_ top: FPercent, _ horizontal: FPercent, _ bottom: FPercent) -> Flex {
-        yoga.paddingTop = YGValue(value: Float(top.value), unit: .percent)
-        yoga.paddingHorizontal = YGValue(value: Float(horizontal.value), unit: .percent)
-        yoga.paddingBottom = YGValue(value: Float(bottom.value), unit: .percent)
+        yoga.paddingTop = RNYGValue(value: Float(top.value), unit: .percent)
+        yoga.paddingHorizontal = RNYGValue(value: Float(horizontal.value), unit: .percent)
+        yoga.paddingBottom = RNYGValue(value: Float(bottom.value), unit: .percent)
         return self
     }
     
@@ -1196,19 +1196,19 @@ public final class Flex {
      */
     @discardableResult
     public func padding(_ top: CGFloat, _ left: CGFloat, _ bottom: CGFloat, _ right: CGFloat) -> Flex {
-        yoga.paddingTop = YGValue(top)
-        yoga.paddingLeft = YGValue(left)
-        yoga.paddingBottom = YGValue(bottom)
-        yoga.paddingRight = YGValue(right)
+        yoga.paddingTop = RNYGValue(top)
+        yoga.paddingLeft = RNYGValue(left)
+        yoga.paddingBottom = RNYGValue(bottom)
+        yoga.paddingRight = RNYGValue(right)
         return self
     }
 
     @discardableResult
     public func padding(_ top: FPercent, _ left: FPercent, _ bottom: FPercent, _ right: FPercent) -> Flex {
-        yoga.paddingTop = YGValue(value: Float(top.value), unit: .percent)
-        yoga.paddingLeft = YGValue(value: Float(left.value), unit: .percent)
-        yoga.paddingBottom = YGValue(value: Float(bottom.value), unit: .percent)
-        yoga.paddingRight = YGValue(value: Float(right.value), unit: .percent)
+        yoga.paddingTop = RNYGValue(value: Float(top.value), unit: .percent)
+        yoga.paddingLeft = RNYGValue(value: Float(left.value), unit: .percent)
+        yoga.paddingBottom = RNYGValue(value: Float(bottom.value), unit: .percent)
+        yoga.paddingRight = RNYGValue(value: Float(right.value), unit: .percent)
         return self
     }
     

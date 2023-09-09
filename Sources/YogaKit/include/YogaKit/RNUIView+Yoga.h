@@ -5,19 +5,19 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import "YGLayout.h"
+#import "RNYGLayout.h"
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void (^YGLayoutConfigurationBlock)(YGLayout *layout);
+typedef void (^RNYGLayoutConfigurationBlock)(RNYGLayout *layout);
 
 @interface UIView (Yoga)
 
 /**
  The YGLayout that is attached to this view. It is lazily created.
  */
-@property (nonatomic, readonly, strong) YGLayout *yoga;
+@property (nonatomic, readonly, strong) RNYGLayout *yoga;
 /**
  Indicates whether or not Yoga is enabled
  */
@@ -28,7 +28,7 @@ typedef void (^YGLayoutConfigurationBlock)(YGLayout *layout);
  to your code. If you plan on making multiple changes to YGLayout, it's more performant
  to use this method, which uses a single objc_msgSend call.
  */
-- (void)configureLayoutWithBlock:(YGLayoutConfigurationBlock)block
+- (void)configureLayoutWithBlock:(RNYGLayoutConfigurationBlock)block
     NS_SWIFT_NAME(configureLayout(block:));
 
 @end

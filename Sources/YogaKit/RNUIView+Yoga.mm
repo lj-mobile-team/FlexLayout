@@ -5,19 +5,19 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import "UIView+Yoga.h"
-#import "YGLayout+Private.h"
+#import "RNUIView+Yoga.h"
+#import "RNYGLayout+Private.h"
 #import <objc/runtime.h>
 
 static const void *kYGYogaAssociatedKey = &kYGYogaAssociatedKey;
 
 @implementation UIView (YogaKit)
 
-- (YGLayout *)yoga
+- (RNYGLayout *)yoga
 {
-  YGLayout *yoga = objc_getAssociatedObject(self, kYGYogaAssociatedKey);
+    RNYGLayout *yoga = objc_getAssociatedObject(self, kYGYogaAssociatedKey);
   if (!yoga) {
-    yoga = [[YGLayout alloc] initWithView:self];
+    yoga = [[RNYGLayout alloc] initWithView:self];
     objc_setAssociatedObject(self, kYGYogaAssociatedKey, yoga, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
   }
 
@@ -29,7 +29,7 @@ static const void *kYGYogaAssociatedKey = &kYGYogaAssociatedKey;
   return objc_getAssociatedObject(self, kYGYogaAssociatedKey) != nil;
 }
 
-- (void)configureLayoutWithBlock:(YGLayoutConfigurationBlock)block
+- (void)configureLayoutWithBlock:(RNYGLayoutConfigurationBlock)block
 {
   if (block != nil) {
     block(self.yoga);

@@ -10,55 +10,55 @@
 #include <array>
 #include <cmath>
 #include <vector>
-#include "Yoga.h"
+#include "RNYoga.h"
 
-using YGVector = std::vector<YGNodeRef>;
+using RNYGVector = std::vector<RNYGNodeRef>;
 
-YG_EXTERN_C_BEGIN
+RNYG_EXTERN_C_BEGIN
 
-WIN_EXPORT float YGRoundValueToPixelGrid(const float value,
+WIN_EXPORT float RNYGRoundValueToPixelGrid(const float value,
                                          const float pointScaleFactor,
                                          const bool forceCeil,
                                          const bool forceFloor);
 
-YG_EXTERN_C_END
+RNYG_EXTERN_C_END
 
-extern const std::array<YGEdge, 4> trailing;
-extern const std::array<YGEdge, 4> leading;
-extern bool YGValueEqual(const YGValue a, const YGValue b);
-extern const YGValue YGValueUndefined;
-extern const YGValue YGValueAuto;
-extern const YGValue YGValueZero;
+extern const std::array<RNYGEdge, 4> trailing;
+extern const std::array<RNYGEdge, 4> leading;
+extern bool RNYGValueEqual(const RNYGValue a, const RNYGValue b);
+extern const RNYGValue RNYGValueUndefined;
+extern const RNYGValue RNYGValueAuto;
+extern const RNYGValue RNYGValueZero;
 
 template <std::size_t size>
-bool YGValueArrayEqual(
-    const std::array<YGValue, size> val1,
-    const std::array<YGValue, size> val2) {
+bool RNYGValueArrayEqual(
+    const std::array<RNYGValue, size> val1,
+    const std::array<RNYGValue, size> val2) {
   bool areEqual = true;
   for (uint32_t i = 0; i < size && areEqual; ++i) {
-    areEqual = YGValueEqual(val1[i], val2[i]);
+    areEqual = RNYGValueEqual(val1[i], val2[i]);
   }
   return areEqual;
 }
 
-struct YGCachedMeasurement {
+struct RNYGCachedMeasurement {
   float availableWidth;
   float availableHeight;
-  YGMeasureMode widthMeasureMode;
-  YGMeasureMode heightMeasureMode;
+    RNYGMeasureMode widthMeasureMode;
+    RNYGMeasureMode heightMeasureMode;
 
   float computedWidth;
   float computedHeight;
 
-  YGCachedMeasurement()
+    RNYGCachedMeasurement()
       : availableWidth(0),
         availableHeight(0),
-        widthMeasureMode((YGMeasureMode)-1),
-        heightMeasureMode((YGMeasureMode)-1),
+        widthMeasureMode((RNYGMeasureMode)-1),
+        heightMeasureMode((RNYGMeasureMode)-1),
         computedWidth(-1),
         computedHeight(-1) {}
 
-  bool operator==(YGCachedMeasurement measurement) const {
+  bool operator==(RNYGCachedMeasurement measurement) const {
     bool isEqual = widthMeasureMode == measurement.widthMeasureMode &&
         heightMeasureMode == measurement.heightMeasureMode;
 
@@ -84,16 +84,16 @@ struct YGCachedMeasurement {
 
 // This value was chosen based on empiracle data. Even the most complicated
 // layouts should not require more than 16 entries to fit within the cache.
-#define YG_MAX_CACHED_RESULT_COUNT 16
+#define RNYG_MAX_CACHED_RESULT_COUNT 16
 
-struct YGConfig {
-  bool experimentalFeatures[YGExperimentalFeatureCount + 1];
+struct RNYGConfig {
+  bool experimentalFeatures[RNYGExperimentalFeatureCount + 1];
   bool useWebDefaults;
   bool useLegacyStretchBehaviour;
   bool shouldDiffLayoutWithoutLegacyStretchBehaviour;
   float pointScaleFactor;
-  YGLogger logger;
-  YGNodeClonedFunc cloneNodeCallback;
+    RNYGLogger logger;
+    RNYGNodeClonedFunc cloneNodeCallback;
   void* context;
 };
 
@@ -101,9 +101,9 @@ static const float kDefaultFlexGrow = 0.0f;
 static const float kDefaultFlexShrink = 0.0f;
 static const float kWebDefaultFlexShrink = 1.0f;
 
-extern bool YGFloatsEqual(const float a, const float b);
-extern bool YGValueEqual(const YGValue a, const YGValue b);
-extern const YGValue* YGComputedEdgeValue(
-    const std::array<YGValue, YGEdgeCount>& edges,
-    const YGEdge edge,
-    const YGValue* const defaultValue);
+extern bool RNYGFloatsEqual(const float a, const float b);
+extern bool RNYGValueEqual(const RNYGValue a, const RNYGValue b);
+extern const RNYGValue* RNYGComputedEdgeValue(
+    const std::array<RNYGValue, RNYGEdgeCount>& edges,
+    const RNYGEdge edge,
+    const RNYGValue* const defaultValue);

@@ -6,13 +6,13 @@
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  */
-#include "YGStyle.h"
+#include "RNYGStyle.h"
 
-const YGValue kYGValueUndefined = {YGUndefined, YGUnitUndefined};
+const RNYGValue kYGValueUndefined = {RNYGUndefined, RNYGUnitUndefined};
 
-const YGValue kYGValueAuto = {YGUndefined, YGUnitAuto};
+const RNYGValue kYGValueAuto = {RNYGUndefined, RNYGUnitAuto};
 
-const std::array<YGValue, YGEdgeCount> kYGDefaultEdgeValuesUnit = {
+const std::array<RNYGValue, RNYGEdgeCount> kYGDefaultEdgeValuesUnit = {
     {kYGValueUndefined,
      kYGValueUndefined,
      kYGValueUndefined,
@@ -23,26 +23,26 @@ const std::array<YGValue, YGEdgeCount> kYGDefaultEdgeValuesUnit = {
      kYGValueUndefined,
      kYGValueUndefined}};
 
-const std::array<YGValue, 2> kYGDefaultDimensionValuesAutoUnit = {
+const std::array<RNYGValue, 2> kYGDefaultDimensionValuesAutoUnit = {
     {kYGValueAuto, kYGValueAuto}};
 
-const std::array<YGValue, 2> kYGDefaultDimensionValuesUnit = {
+const std::array<RNYGValue, 2> kYGDefaultDimensionValuesUnit = {
     {kYGValueUndefined, kYGValueUndefined}};
 
-YGStyle::YGStyle()
-    : direction(YGDirectionInherit),
-      flexDirection(YGFlexDirectionColumn),
-      justifyContent(YGJustifyFlexStart),
-      alignContent(YGAlignFlexStart),
-      alignItems(YGAlignStretch),
-      alignSelf(YGAlignAuto),
-      positionType(YGPositionTypeRelative),
-      flexWrap(YGWrapNoWrap),
-      overflow(YGOverflowVisible),
-      display(YGDisplayFlex),
-      flex(YGUndefined),
-      flexGrow(YGUndefined),
-      flexShrink(YGUndefined),
+RNYGStyle::RNYGStyle()
+    : direction(RNYGDirectionInherit),
+      flexDirection(RNYGFlexDirectionColumn),
+      justifyContent(RNYGJustifyFlexStart),
+      alignContent(RNYGAlignFlexStart),
+      alignItems(RNYGAlignStretch),
+      alignSelf(RNYGAlignAuto),
+      positionType(RNYGPositionTypeRelative),
+      flexWrap(RNYGWrapNoWrap),
+      overflow(RNYGOverflowVisible),
+      display(RNYGDisplayFlex),
+      flex(RNYGUndefined),
+      flexGrow(RNYGUndefined),
+      flexShrink(RNYGUndefined),
       flexBasis(kYGValueAuto),
       margin(kYGDefaultEdgeValuesUnit),
       position(kYGDefaultEdgeValuesUnit),
@@ -51,24 +51,24 @@ YGStyle::YGStyle()
       dimensions(kYGDefaultDimensionValuesAutoUnit),
       minDimensions(kYGDefaultDimensionValuesUnit),
       maxDimensions(kYGDefaultDimensionValuesUnit),
-      aspectRatio(YGUndefined) {}
+      aspectRatio(RNYGUndefined) {}
 
 // Yoga specific properties, not compatible with flexbox specification
-bool YGStyle::operator==(const YGStyle& style) {
+bool RNYGStyle::operator==(const RNYGStyle& style) {
   bool areNonFloatValuesEqual = direction == style.direction &&
       flexDirection == style.flexDirection &&
       justifyContent == style.justifyContent &&
       alignContent == style.alignContent && alignItems == style.alignItems &&
       alignSelf == style.alignSelf && positionType == style.positionType &&
       flexWrap == style.flexWrap && overflow == style.overflow &&
-      display == style.display && YGValueEqual(flexBasis, style.flexBasis) &&
-      YGValueArrayEqual(margin, style.margin) &&
-      YGValueArrayEqual(position, style.position) &&
-      YGValueArrayEqual(padding, style.padding) &&
-      YGValueArrayEqual(border, style.border) &&
-      YGValueArrayEqual(dimensions, style.dimensions) &&
-      YGValueArrayEqual(minDimensions, style.minDimensions) &&
-      YGValueArrayEqual(maxDimensions, style.maxDimensions);
+      display == style.display && RNYGValueEqual(flexBasis, style.flexBasis) &&
+    RNYGValueArrayEqual(margin, style.margin) &&
+    RNYGValueArrayEqual(position, style.position) &&
+    RNYGValueArrayEqual(padding, style.padding) &&
+    RNYGValueArrayEqual(border, style.border) &&
+    RNYGValueArrayEqual(dimensions, style.dimensions) &&
+    RNYGValueArrayEqual(minDimensions, style.minDimensions) &&
+    RNYGValueArrayEqual(maxDimensions, style.maxDimensions);
 
   if (!(std::isnan(flex) && std::isnan(style.flex))) {
     areNonFloatValuesEqual = areNonFloatValuesEqual && flex == style.flex;
@@ -92,8 +92,8 @@ bool YGStyle::operator==(const YGStyle& style) {
   return areNonFloatValuesEqual;
 }
 
-bool YGStyle::operator!=(YGStyle style) {
+bool RNYGStyle::operator!=(RNYGStyle style) {
   return !(*this == style);
 }
 
-YGStyle::~YGStyle() {}
+RNYGStyle::~RNYGStyle() {}

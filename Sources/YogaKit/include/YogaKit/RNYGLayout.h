@@ -12,33 +12,33 @@
 #import <yoga/Yoga.h>
 #import <yoga/YGMacros.h>
 #else
-#import "YGEnums.h"
-#import "Yoga.h"
-#import "YGMacros.h"
+#import "RNYGEnums.h"
+#import "RNYoga.h"
+#import "RNYGMacros.h"
 #endif
 
-YG_EXTERN_C_BEGIN
+RNYG_EXTERN_C_BEGIN
 
-extern YGValue YGPointValue(CGFloat value)
+extern RNYGValue RNYGPointValue(CGFloat value)
     NS_SWIFT_UNAVAILABLE("Use the swift Int and FloatingPoint extensions instead");
-extern YGValue YGPercentValue(CGFloat value)
+extern RNYGValue RNYGPercentValue(CGFloat value)
     NS_SWIFT_UNAVAILABLE("Use the swift Int and FloatingPoint extensions instead");
 
-YG_EXTERN_C_END
+RNYG_EXTERN_C_END
 
-typedef NS_OPTIONS(NSInteger, YGDimensionFlexibility) {
-  YGDimensionFlexibilityFlexibleWidth = 1 << 0,
-  YGDimensionFlexibilityFlexibleHeight = 1 << 1,
+typedef NS_OPTIONS(NSInteger, RNYGDimensionFlexibility) {
+    RNYGDimensionFlexibilityFlexibleWidth = 1 << 0,
+    RNYGDimensionFlexibilityFlexibleHeight = 1 << 1,
 };
 
-@interface YGLayout : NSObject
+@interface RNYGLayout : NSObject
 
 /**
  Make default init unavailable, as it will not initialise YGNode which is
  required for the setters and getters of YGLayout's properties to work properly.
 */
 - (instancetype)init
-    __attribute__((unavailable("you are not meant to initialise YGLayout")));
+    __attribute__((unavailable("you are not meant to initialise RNYGLayout")));
 
 /**
   The property that decides if we should include this view when calculating
@@ -52,47 +52,47 @@ typedef NS_OPTIONS(NSInteger, YGDimensionFlexibility) {
  */
 @property (nonatomic, readwrite, assign, setter=setEnabled:) BOOL isEnabled;
 
-@property (nonatomic, readwrite, assign) YGDirection direction;
-@property (nonatomic, readwrite, assign) YGFlexDirection flexDirection;
-@property (nonatomic, readwrite, assign) YGJustify justifyContent;
-@property (nonatomic, readwrite, assign) YGAlign alignContent;
-@property (nonatomic, readwrite, assign) YGAlign alignItems;
-@property (nonatomic, readwrite, assign) YGAlign alignSelf;
-@property (nonatomic, readwrite, assign) YGPositionType position;
-@property (nonatomic, readwrite, assign) YGWrap flexWrap;
-@property (nonatomic, readwrite, assign) YGOverflow overflow;
-@property (nonatomic, readwrite, assign) YGDisplay display;
+@property (nonatomic, readwrite, assign) RNYGDirection direction;
+@property (nonatomic, readwrite, assign) RNYGFlexDirection flexDirection;
+@property (nonatomic, readwrite, assign) RNYGJustify justifyContent;
+@property (nonatomic, readwrite, assign) RNYGAlign alignContent;
+@property (nonatomic, readwrite, assign) RNYGAlign alignItems;
+@property (nonatomic, readwrite, assign) RNYGAlign alignSelf;
+@property (nonatomic, readwrite, assign) RNYGPositionType position;
+@property (nonatomic, readwrite, assign) RNYGWrap flexWrap;
+@property (nonatomic, readwrite, assign) RNYGOverflow overflow;
+@property (nonatomic, readwrite, assign) RNYGDisplay display;
 
 @property (nonatomic, readwrite, assign) CGFloat flexGrow;
 @property (nonatomic, readwrite, assign) CGFloat flexShrink;
-@property (nonatomic, readwrite, assign) YGValue flexBasis;
+@property (nonatomic, readwrite, assign) RNYGValue flexBasis;
 
-@property (nonatomic, readwrite, assign) YGValue left;
-@property (nonatomic, readwrite, assign) YGValue top;
-@property (nonatomic, readwrite, assign) YGValue right;
-@property (nonatomic, readwrite, assign) YGValue bottom;
-@property (nonatomic, readwrite, assign) YGValue start;
-@property (nonatomic, readwrite, assign) YGValue end;
+@property (nonatomic, readwrite, assign) RNYGValue left;
+@property (nonatomic, readwrite, assign) RNYGValue top;
+@property (nonatomic, readwrite, assign) RNYGValue right;
+@property (nonatomic, readwrite, assign) RNYGValue bottom;
+@property (nonatomic, readwrite, assign) RNYGValue start;
+@property (nonatomic, readwrite, assign) RNYGValue end;
 
-@property (nonatomic, readwrite, assign) YGValue marginLeft;
-@property (nonatomic, readwrite, assign) YGValue marginTop;
-@property (nonatomic, readwrite, assign) YGValue marginRight;
-@property (nonatomic, readwrite, assign) YGValue marginBottom;
-@property (nonatomic, readwrite, assign) YGValue marginStart;
-@property (nonatomic, readwrite, assign) YGValue marginEnd;
-@property (nonatomic, readwrite, assign) YGValue marginHorizontal;
-@property (nonatomic, readwrite, assign) YGValue marginVertical;
-@property (nonatomic, readwrite, assign) YGValue margin;
+@property (nonatomic, readwrite, assign) RNYGValue marginLeft;
+@property (nonatomic, readwrite, assign) RNYGValue marginTop;
+@property (nonatomic, readwrite, assign) RNYGValue marginRight;
+@property (nonatomic, readwrite, assign) RNYGValue marginBottom;
+@property (nonatomic, readwrite, assign) RNYGValue marginStart;
+@property (nonatomic, readwrite, assign) RNYGValue marginEnd;
+@property (nonatomic, readwrite, assign) RNYGValue marginHorizontal;
+@property (nonatomic, readwrite, assign) RNYGValue marginVertical;
+@property (nonatomic, readwrite, assign) RNYGValue margin;
 
-@property (nonatomic, readwrite, assign) YGValue paddingLeft;
-@property (nonatomic, readwrite, assign) YGValue paddingTop;
-@property (nonatomic, readwrite, assign) YGValue paddingRight;
-@property (nonatomic, readwrite, assign) YGValue paddingBottom;
-@property (nonatomic, readwrite, assign) YGValue paddingStart;
-@property (nonatomic, readwrite, assign) YGValue paddingEnd;
-@property (nonatomic, readwrite, assign) YGValue paddingHorizontal;
-@property (nonatomic, readwrite, assign) YGValue paddingVertical;
-@property (nonatomic, readwrite, assign) YGValue padding;
+@property (nonatomic, readwrite, assign) RNYGValue paddingLeft;
+@property (nonatomic, readwrite, assign) RNYGValue paddingTop;
+@property (nonatomic, readwrite, assign) RNYGValue paddingRight;
+@property (nonatomic, readwrite, assign) RNYGValue paddingBottom;
+@property (nonatomic, readwrite, assign) RNYGValue paddingStart;
+@property (nonatomic, readwrite, assign) RNYGValue paddingEnd;
+@property (nonatomic, readwrite, assign) RNYGValue paddingHorizontal;
+@property (nonatomic, readwrite, assign) RNYGValue paddingVertical;
+@property (nonatomic, readwrite, assign) RNYGValue padding;
 
 @property (nonatomic, readwrite, assign) CGFloat borderLeftWidth;
 @property (nonatomic, readwrite, assign) CGFloat borderTopWidth;
@@ -102,12 +102,12 @@ typedef NS_OPTIONS(NSInteger, YGDimensionFlexibility) {
 @property (nonatomic, readwrite, assign) CGFloat borderEndWidth;
 @property (nonatomic, readwrite, assign) CGFloat borderWidth;
 
-@property (nonatomic, readwrite, assign) YGValue width;
-@property (nonatomic, readwrite, assign) YGValue height;
-@property (nonatomic, readwrite, assign) YGValue minWidth;
-@property (nonatomic, readwrite, assign) YGValue minHeight;
-@property (nonatomic, readwrite, assign) YGValue maxWidth;
-@property (nonatomic, readwrite, assign) YGValue maxHeight;
+@property (nonatomic, readwrite, assign) RNYGValue width;
+@property (nonatomic, readwrite, assign) RNYGValue height;
+@property (nonatomic, readwrite, assign) RNYGValue minWidth;
+@property (nonatomic, readwrite, assign) RNYGValue minHeight;
+@property (nonatomic, readwrite, assign) RNYGValue maxWidth;
+@property (nonatomic, readwrite, assign) RNYGValue maxHeight;
 
 // Yoga specific properties, not compatible with flexbox specification
 @property (nonatomic, readwrite, assign) CGFloat aspectRatio;
@@ -115,7 +115,7 @@ typedef NS_OPTIONS(NSInteger, YGDimensionFlexibility) {
 /**
  Get the resolved direction of this node. This won't be YGDirectionInherit
  */
-@property (nonatomic, readonly, assign) YGDirection resolvedDirection;
+@property (nonatomic, readonly, assign) RNYGDirection resolvedDirection;
 
 /**
  Perform a layout calculation and update the frames of the views in the hierarchy with the results.
@@ -129,7 +129,7 @@ typedef NS_OPTIONS(NSInteger, YGDimensionFlexibility) {
  If the origin is not preserved, the root view's layout results will applied from {0,0}.
  */
 - (void)applyLayoutPreservingOrigin:(BOOL)preserveOrigin
-               dimensionFlexibility:(YGDimensionFlexibility)dimensionFlexibility
+               dimensionFlexibility:(RNYGDimensionFlexibility)dimensionFlexibility
     NS_SWIFT_NAME(applyLayout(preservingOrigin:dimensionFlexibility:));
 
 /**

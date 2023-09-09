@@ -5,16 +5,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import "YGLayout.h"
+#import "RNYGLayout.h"
 #if FLEXLAYOUT_SWIFT_PACKAGE
 #import <yoga/Yoga.h>
 #else
-#import "Yoga.h"
+#import "RNYoga.h"
 #endif
 
-@interface YGLayout ()
+@interface RNYGLayout ()
 
-@property (nonatomic, assign, readonly) YGNodeRef node;
+@property (nonatomic, assign, readonly) RNYGNodeRef node;
 
 - (instancetype)initWithView:(UIView *)view;
 

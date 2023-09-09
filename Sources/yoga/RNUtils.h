@@ -6,7 +6,7 @@
  */
 
 #pragma once
-#include "YGNode.h"
+#include "RNYGNode.h"
 #include "Yoga-internal.h"
 
 // This struct is an helper model to hold the data for step 4 of flexbox
@@ -35,13 +35,13 @@
 // - relativeChildren: Maintain a vector of the child nodes that can shrink
 // and/or grow.
 
-struct YGCollectFlexItemsRowValues {
+struct RNYGCollectFlexItemsRowValues {
   uint32_t itemsOnLine;
   float sizeConsumedOnCurrentLine;
   float totalFlexGrowFactors;
   float totalFlexShrinkScaledFactors;
   float endOfLineIndex;
-  std::vector<YGNodeRef> relativeChildren;
+  std::vector<RNYGNodeRef> relativeChildren;
   float remainingFreeSpace;
   // The size of the mainDim for the row after considering size, padding, margin
   // and border of flex items. This is used to calculate maxLineDim after going
@@ -52,51 +52,51 @@ struct YGCollectFlexItemsRowValues {
   float crossDim;
 };
 
-bool YGValueEqual(const YGValue a, const YGValue b);
+bool RNYGValueEqual(const RNYGValue a, const RNYGValue b);
 
-YGFlexDirection YGFlexDirectionCross(
-    const YGFlexDirection flexDirection,
-    const YGDirection direction);
+RNYGFlexDirection RNYGFlexDirectionCross(
+    const RNYGFlexDirection flexDirection,
+    const RNYGDirection direction);
 
-inline bool YGFlexDirectionIsRow(const YGFlexDirection flexDirection) {
-  return flexDirection == YGFlexDirectionRow ||
-      flexDirection == YGFlexDirectionRowReverse;
+inline bool RNYGFlexDirectionIsRow(const RNYGFlexDirection flexDirection) {
+  return flexDirection == RNYGFlexDirectionRow ||
+      flexDirection == RNYGFlexDirectionRowReverse;
 }
 
-inline float YGResolveValue(const YGValue value, const float parentSize) {
+inline float RNYGResolveValue(const RNYGValue value, const float parentSize) {
   switch (value.unit) {
-    case YGUnitUndefined:
-    case YGUnitAuto:
-      return YGUndefined;
-    case YGUnitPoint:
+    case RNYGUnitUndefined:
+    case RNYGUnitAuto:
+      return RNYGUndefined;
+    case RNYGUnitPoint:
       return value.value;
-    case YGUnitPercent:
+    case RNYGUnitPercent:
       return value.value * parentSize / 100.0f;
   }
-  return YGUndefined;
+  return RNYGUndefined;
 }
 
-inline bool YGFlexDirectionIsColumn(const YGFlexDirection flexDirection) {
-  return flexDirection == YGFlexDirectionColumn ||
-      flexDirection == YGFlexDirectionColumnReverse;
+inline bool RNYGFlexDirectionIsColumn(const RNYGFlexDirection flexDirection) {
+  return flexDirection == RNYGFlexDirectionColumn ||
+      flexDirection == RNYGFlexDirectionColumnReverse;
 }
 
-inline YGFlexDirection YGResolveFlexDirection(
-    const YGFlexDirection flexDirection,
-    const YGDirection direction) {
-  if (direction == YGDirectionRTL) {
-    if (flexDirection == YGFlexDirectionRow) {
-      return YGFlexDirectionRowReverse;
-    } else if (flexDirection == YGFlexDirectionRowReverse) {
-      return YGFlexDirectionRow;
+inline RNYGFlexDirection RNYGResolveFlexDirection(
+    const RNYGFlexDirection flexDirection,
+    const RNYGDirection direction) {
+  if (direction == RNYGDirectionRTL) {
+    if (flexDirection == RNYGFlexDirectionRow) {
+      return RNYGFlexDirectionRowReverse;
+    } else if (flexDirection == RNYGFlexDirectionRowReverse) {
+      return RNYGFlexDirectionRow;
     }
   }
 
   return flexDirection;
 }
 
-static inline float YGResolveValueMargin(
-    const YGValue value,
+static inline float RNYGResolveValueMargin(
+    const RNYGValue value,
     const float parentSize) {
-  return value.unit == YGUnitAuto ? 0 : YGResolveValue(value, parentSize);
+  return value.unit == RNYGUnitAuto ? 0 : RNYGResolveValue(value, parentSize);
 }

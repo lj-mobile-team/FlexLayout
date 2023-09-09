@@ -12,19 +12,19 @@ import FlexLayoutYoga
 #endif
 
 extension Flex {
-    func valueOrUndefined(_ value: CGFloat?) -> YGValue {
+    func valueOrUndefined(_ value: CGFloat?) -> RNYGValue {
         if let value = value {
-            return YGValue(value)
+            return RNYGValue(value)
         } else {
-            return YGValueUndefined
+            return RNYGValueUndefined
         }
     }
     
-    func valueOrAuto(_ value: CGFloat?) -> YGValue {
+    func valueOrAuto(_ value: CGFloat?) -> RNYGValue {
         if let value = value {
-            return YGValue(value)
+            return RNYGValue(value)
         } else {
-            return YGValueAuto
+            return RNYGValueAuto
         }
     }
 }

@@ -7,15 +7,15 @@
 #pragma once
 #include <string>
 
-#include "Yoga.h"
+#include "RNYoga.h"
 
 namespace facebook {
 namespace yoga {
 
-void YGNodeToString(
+void RNYGNodeToString(
     std::string* str,
-    YGNodeRef node,
-    YGPrintOptions options,
+    RNYGNodeRef node,
+    RNYGPrintOptions options,
     uint32_t level);
 
 } // namespace yoga

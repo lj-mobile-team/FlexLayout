@@ -6,31 +6,31 @@
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  */
-#include "YGLayout.h"
+#include "RNYGLayout.h"
 
 const std::array<float, 2> kYGDefaultDimensionValues = {
-    {YGUndefined, YGUndefined}};
+    {RNYGUndefined, RNYGUndefined}};
 
-YGLayout::YGLayout()
+RNYGLayout::RNYGLayout()
     : position(),
       dimensions(kYGDefaultDimensionValues),
       margin(),
       border(),
       padding(),
-      direction(YGDirectionInherit),
+      direction(RNYGDirectionInherit),
       computedFlexBasisGeneration(0),
-      computedFlexBasis(YGUndefined),
+      computedFlexBasis(RNYGUndefined),
       hadOverflow(false),
       generationCount(0),
-      lastParentDirection((YGDirection)-1),
+      lastParentDirection((RNYGDirection)-1),
       nextCachedMeasurementsIndex(0),
       cachedMeasurements(),
       measuredDimensions(kYGDefaultDimensionValues),
-      cachedLayout(YGCachedMeasurement()),
+      cachedLayout(RNYGCachedMeasurement()),
       didUseLegacyFlag(false),
       doesLegacyStretchFlagAffectsLayout(false) {}
 
-bool YGLayout::operator==(YGLayout layout) const {
+bool RNYGLayout::operator==(RNYGLayout layout) const {
   bool isEqual = position == layout.position &&
       dimensions == layout.dimensions && margin == layout.margin &&
       border == layout.border && padding == layout.padding &&
@@ -39,21 +39,21 @@ bool YGLayout::operator==(YGLayout layout) const {
       nextCachedMeasurementsIndex == layout.nextCachedMeasurementsIndex &&
       cachedLayout == layout.cachedLayout;
 
-  for (uint32_t i = 0; i < YG_MAX_CACHED_RESULT_COUNT && isEqual; ++i) {
+  for (uint32_t i = 0; i < RNYG_MAX_CACHED_RESULT_COUNT && isEqual; ++i) {
     isEqual = isEqual && cachedMeasurements[i] == layout.cachedMeasurements[i];
   }
 
-  if (!YGFloatIsUndefined(computedFlexBasis) ||
-      !YGFloatIsUndefined(layout.computedFlexBasis)) {
+  if (!RNYGFloatIsUndefined(computedFlexBasis) ||
+      !RNYGFloatIsUndefined(layout.computedFlexBasis)) {
     isEqual = isEqual && (computedFlexBasis == layout.computedFlexBasis);
   }
-  if (!YGFloatIsUndefined(measuredDimensions[0]) ||
-      !YGFloatIsUndefined(layout.measuredDimensions[0])) {
+  if (!RNYGFloatIsUndefined(measuredDimensions[0]) ||
+      !RNYGFloatIsUndefined(layout.measuredDimensions[0])) {
     isEqual =
         isEqual && (measuredDimensions[0] == layout.measuredDimensions[0]);
   }
-  if (!YGFloatIsUndefined(measuredDimensions[1]) ||
-      !YGFloatIsUndefined(layout.measuredDimensions[1])) {
+  if (!RNYGFloatIsUndefined(measuredDimensions[1]) ||
+      !RNYGFloatIsUndefined(layout.measuredDimensions[1])) {
     isEqual =
         isEqual && (measuredDimensions[1] == layout.measuredDimensions[1]);
   }
@@ -61,6 +61,6 @@ bool YGLayout::operator==(YGLayout layout) const {
   return isEqual;
 }
 
-bool YGLayout::operator!=(YGLayout layout) const {
+bool RNYGLayout::operator!=(RNYGLayout layout) const {
   return !(*this == layout);
 }
