@@ -11,11 +11,11 @@ GMOCK_OVERRIDE_FLAGS = [
 ]
 
 COMPILER_FLAGS = LIBRARY_COMPILER_FLAGS + [
-    "-std=c++1y",
+    "-std=c++17",
 ]
 
 TEST_COMPILER_FLAGS = BASE_COMPILER_FLAGS + GMOCK_OVERRIDE_FLAGS + [
-    "-std=c++1y",
+    "-std=c++17",
 ]
 
 cxx_library(

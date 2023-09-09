@@ -32,6 +32,7 @@ BASE_COMPILER_FLAGS = [
   '-Wall',
   '-Werror',
   '-O3',
+  '-std=c++17'
 ]
 
 LIBRARY_COMPILER_FLAGS = BASE_COMPILER_FLAGS + [
