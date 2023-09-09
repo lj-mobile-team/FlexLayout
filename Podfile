@@ -6,7 +6,7 @@ workspace 'FlexLayout.xcworkspace'
 
 target 'FlexLayoutTests' do
   project 'FlexLayout.xcodeproj'
-  pod 'FlexLayout', :path => './'
+  pod 'RNFlexLayout', :path => './'
 
   pod 'Quick'
   pod 'Nimble', :inhibit_warnings => true
@@ -15,7 +15,7 @@ end
 target 'FlexLayoutSample' do
   project 'Example/FlexLayoutSample.xcodeproj'
 
-  pod 'FlexLayout', :path => './'
+  pod 'RNFlexLayout', :path => './'
   pod 'PinLayout'
 
   # Debug only

@@ -7,7 +7,7 @@
 
 #if FLEXLAYOUT_SWIFT_PACKAGE
 import CoreGraphics
-import FlexLayoutYoga
+import RNFlexLayoutYoga
 #endif
 
 postfix operator %

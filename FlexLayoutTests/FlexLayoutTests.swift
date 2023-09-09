@@ -11,7 +11,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 
 import XCTest
-@testable import FlexLayout
+@testable import RNFlexLayout
 
 class FlexLayoutTests: XCTestCase {
     

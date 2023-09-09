@@ -4,18 +4,18 @@
 import PackageDescription
 
 let package = Package(
-  name: "FlexLayout",
+  name: "RNFlexLayout",
   products: [
-    .library(name: "FlexLayout", targets: ["FlexLayout"]),
-    .library(name: "FlexLayoutYoga", targets: ["FlexLayoutYoga"]),
-    .library(name: "FlexLayoutYogaKit", targets: ["FlexLayoutYogaKit"])
+    .library(name: "RNFlexLayout", targets: ["RNFlexLayout"]),
+    .library(name: "RNFlexLayoutYoga", targets: ["RNFlexLayoutYoga"]),
+    .library(name: "RNFlexLayoutYogaKit", targets: ["RNFlexLayoutYogaKit"])
   ],
   dependencies: [
   ],
   targets: [
     .target(
-      name: "FlexLayout",
-      dependencies: ["FlexLayoutYoga", "FlexLayoutYogaKit"],
+      name: "RNFlexLayout",
+      dependencies: ["RNFlexLayoutYoga", "RNFlexLayoutYogaKit"],
       path: "Sources/Swift",
       cSettings: [
         .define("FLEXLAYOUT_SWIFT_PACKAGE")
@@ -30,7 +30,7 @@ let package = Package(
       ]
     ),
     .target(
-      name: "FlexLayoutYoga",
+      name: "RNFlexLayoutYoga",
       dependencies: [],
       path: "Sources/yoga",
       cSettings: [
@@ -43,8 +43,8 @@ let package = Package(
       ]
     ),
     .target(
-      name: "FlexLayoutYogaKit",
-      dependencies: ["FlexLayoutYoga"],
+      name: "RNFlexLayoutYogaKit",
+      dependencies: ["RNFlexLayoutYoga"],
       path: "Sources/YogaKit",
       cSettings: [
         .define("FLEXLAYOUT_SWIFT_PACKAGE")

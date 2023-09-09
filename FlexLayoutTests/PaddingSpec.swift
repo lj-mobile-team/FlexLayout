@@ -12,7 +12,7 @@
 
 import Quick
 import Nimble
-import FlexLayout
+import RNFlexLayout
 
 class PaddingSpec: QuickSpec {
     override func spec() {
